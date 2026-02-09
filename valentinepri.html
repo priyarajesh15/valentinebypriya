@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Letter ❤️</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffeef2;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        position: relative;
+    }
+
+    h1 {
+        color: #ff4d6d;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .yes-btn {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    .no-btn {
+        background: #ccc;
+        color: black;
+        position: relative;
+    }
+
+    .letter-window {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: #fff0f5;
+        border: 3px solid #ff4d6d;
+        border-radius: 12px;
+        padding: 30px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        opacity: 0;
+        transition: 0.4s ease;
+    }
+
+    .letter-window.open {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    .heart {
+        font-size: 40px;
+        margin: 10px 0;
+        animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    .close-btn {
+        margin-top: 15px;
+        background: #ff4d6d;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 6px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine?RAJESH 💖</h1>
+
+    <div class="buttons">
+        <button class="yes-btn" onclick="openLetter()">Yes 💕</button>
+        <button class="no-btn" onmouseover="moveButton(this)">No 😜</button>
+    </div>
+</div>
+
+<div class="letter-window" id="letter">
+    <h2>LOVE YOU RAJESH 🥰</h2>
+    <div class="heart">❤️</div>
+    <p>
+        Valentine Date:TODAY 💌<br>
+        Dinner at 8 PM 🍽️<br>
+        Dress Fancy ✨
+        Need GOLD RING as my present
+    </p>
+    <button class="close-btn" onclick="closeLetter()">Close</button>
+</div>
+
+<script>
+    function openLetter() {
+        document.getElementById("letter").classList.add("open");
+    }
+
+    function closeLetter() {
+        document.getElementById("letter").classList.remove("open");
+    }
+
+    function moveButton(btn) {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+</script>
+
+</body>
+</html>
